@@ -17,9 +17,8 @@ function App() {
       setTareas([...tareas, { tarea: tarea, color: color }]);
       setTarea("");
       setColor("");
-      setMensaje("")
+      setMensaje("");
     }
-    
   }
 
   function eliminaTarea(i) {
@@ -48,16 +47,28 @@ function App() {
               required
             ></input>
             <div className="mx-10 my-2">
-              <button className="me-2 my-1 inline-flex items-center px-4 py-1 text-sm font-medium text-blue-800 bg-blue-200 focus:bg-blue-600 rounded focus:text-white" onClick={() => setColor("#BFDBFE")}>
+              <button
+                className="me-2 my-1 inline-flex items-center px-4 py-1 text-sm font-medium text-blue-800 bg-blue-200 focus:bg-blue-600 rounded focus:text-white"
+                onClick={() => setColor("#BFDBFE")}
+              >
                 trabajo
               </button>
-              <button className="me-2 my-1 inline-flex items-center px-4 py-1 text-sm font-medium text-green-800 bg-green-200 focus:bg-green-600 focus:text-white rounded" onClick={() => setColor("#BBF7D0")}>
+              <button
+                className="me-2 my-1 inline-flex items-center px-4 py-1 text-sm font-medium text-green-800 bg-green-200 focus:bg-green-600 focus:text-white rounded"
+                onClick={() => setColor("#BBF7D0")}
+              >
                 personal
               </button>
-              <button className="me-2 my-1 inline-flex items-center px-4 py-1 text-sm font-medium text-red-800 bg-red-200 focus:bg-red-600 focus:text-white rounded" onClick={() => setColor("#FECACA")}>
+              <button
+                className="me-2 my-1 inline-flex items-center px-4 py-1 text-sm font-medium text-red-800 bg-red-200 focus:bg-red-600 focus:text-white rounded"
+                onClick={() => setColor("#FECACA")}
+              >
                 urgente
               </button>
-              <button className="me-2 my-1 inline-flex items-center px-4 py-1 text-sm font-medium text-orange-800 bg-orange-200 focus:bg-orange-600 focus:text-white rounded" onClick={() => setColor("#FED7AA")}>
+              <button
+                className="me-2 my-1 inline-flex items-center px-4 py-1 text-sm font-medium text-orange-800 bg-orange-200 focus:bg-orange-600 focus:text-white rounded"
+                onClick={() => setColor("#FED7AA")}
+              >
                 familia
               </button>
             </div>
@@ -68,7 +79,16 @@ function App() {
               Enviar
             </button>
             {mensaje && (
-              <div className="bg-red-100 border border-red-400 text-red-700 text-sm w-fit px-3 py-1 my-2 mx-10 flex"><svg className="fill-current h-4 my-auto mr-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.432 0c1.34 0 2.01.912 2.01 1.957 0 1.305-1.164 2.512-2.679 2.512-1.269 0-2.009-.75-1.974-1.99C9.789 1.436 10.67 0 12.432 0zM8.309 20c-1.058 0-1.833-.652-1.093-3.524l1.214-5.092c.211-.814.246-1.141 0-1.141-.317 0-1.689.562-2.502 1.117l-.528-.88c2.572-2.186 5.531-3.467 6.801-3.467 1.057 0 1.233 1.273.705 3.23l-1.391 5.352c-.246.945-.141 1.271.106 1.271.317 0 1.357-.392 2.379-1.207l.6.814C12.098 19.02 9.365 20 8.309 20z"/></svg>{mensaje}</div>
+              <div className="bg-red-100 border border-red-400 text-red-700 text-sm w-fit px-3 py-1 my-2 mx-10 flex">
+                <svg
+                  className="fill-current h-4 my-auto mr-3"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M12.432 0c1.34 0 2.01.912 2.01 1.957 0 1.305-1.164 2.512-2.679 2.512-1.269 0-2.009-.75-1.974-1.99C9.789 1.436 10.67 0 12.432 0zM8.309 20c-1.058 0-1.833-.652-1.093-3.524l1.214-5.092c.211-.814.246-1.141 0-1.141-.317 0-1.689.562-2.502 1.117l-.528-.88c2.572-2.186 5.531-3.467 6.801-3.467 1.057 0 1.233 1.273.705 3.23l-1.391 5.352c-.246.945-.141 1.271.106 1.271.317 0 1.357-.392 2.379-1.207l.6.814C12.098 19.02 9.365 20 8.309 20z" />
+                </svg>
+                {mensaje}
+              </div>
             )}
           </div>
           <div className="flex-col border-l border-gray-300 pl-4">
@@ -77,7 +97,8 @@ function App() {
               {tareas.map((e, i) => (
                 <span
                   key={i}
-                  className="me-2 my-1 inline-flex items-center px-4 py-1 text-sm font-medium text-blue-800 rounded" style={{backgroundColor:e.color}}
+                  className="me-2 my-1 inline-flex items-center px-4 py-1 text-sm font-medium text-blue-800 rounded"
+                  style={{ backgroundColor: e.color }}
                 >
                   {e.tarea}
                   <button
