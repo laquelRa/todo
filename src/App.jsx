@@ -3,7 +3,7 @@ import { useState } from "react";
 function App() {
   const [tareas, setTareas] = useState([]);
   const [tarea, setTarea] = useState("");
-  const [color, setColor] = useState("")
+  const [color, setColor] = useState("");
 
   function afegirTarea() {
     setTareas([...tareas, { tarea: tarea, color: color }]);
@@ -37,22 +37,22 @@ function App() {
               required
             ></input>
             <div className="mx-10 my-2">
-              <button className="me-2 my-1 inline-flex items-center px-4 py-1 text-sm font-medium text-blue-800 bg-blue-200 rounded" onClick={() => setColor("#BFDBFE")}>
+              <button className="me-2 my-1 inline-flex items-center px-4 py-1 text-sm font-medium text-blue-800 bg-blue-200 focus:bg-blue-600 rounded focus:text-white" onClick={() => setColor("#BFDBFE")}>
                 treball
               </button>
-              <button className="me-2 my-1 inline-flex items-center px-4 py-1 text-sm font-medium text-green-800 bg-green-200 rounded" onClick={() => setColor("#BBF7D0")}>
+              <button className="me-2 my-1 inline-flex items-center px-4 py-1 text-sm font-medium text-green-800 bg-green-200 focus:bg-green-600 focus:text-white rounded" onClick={() => setColor("#BBF7D0")}>
                 personal
               </button>
-              <button className="me-2 my-1 inline-flex items-center px-4 py-1 text-sm font-medium text-red-800 bg-red-200 rounded" onClick={() => setColor("#FECACA")}>
+              <button className="me-2 my-1 inline-flex items-center px-4 py-1 text-sm font-medium text-red-800 bg-red-200 focus:bg-red-600 focus:text-white rounded" onClick={() => setColor("#FECACA")}>
                 urgente
               </button>
-              <button className="me-2 my-1 inline-flex items-center px-4 py-1 text-sm font-medium text-orange-800 bg-orange-200 rounded" onClick={() => setColor("#FED7AA")}>
+              <button className="me-2 my-1 inline-flex items-center px-4 py-1 text-sm font-medium text-orange-800 bg-orange-200 focus:bg-orange-600 focus:text-white rounded" onClick={() => setColor("#FED7AA")}>
                 familia
               </button>
             </div>
             <button
               onClick={afegirTarea}
-              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-fit px-6 py-1.5 text-center mx-10"
+              className="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm w-fit px-6 py-1.5 text-center mx-10"
             >
               Enviar
             </button>
@@ -68,7 +68,7 @@ function App() {
                   {e.tarea}
                   <button
                     onClick={() => eliminaTarea(i)}
-                    className="inline-flex items-center p-1 ms-2 text-sm text-blue-400 bg-transparent rounded-sm hover:bg-blue-200 hover:text-blue-900"
+                    className="inline-flex items-center p-1 ms-2 text-sm text-blue-400 bg-transparent rounded-sm"
                   >
                     <svg
                       className="w-2 h-2"
