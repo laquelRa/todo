@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [llistaTareas, setLlistaTareas] = useState([]);
   const [tarea, setTarea] = useState("");
   const [color, setColor] = useState("");
   const [mensaje, setMensaje] = useState("");
+
+  useEffect (() => {
+    const guardar = localStorage.getItem("llistaTareas");
+    if (guardar) {
+      setLlistaTareas(JSON.parse(guardar))
+    }
+  }, [])
 
   function afegirTarea() {
     if (!color && !tarea.trim()) {
@@ -14,10 +21,13 @@ function App() {
     } else if (!color) {
       setMensaje("Selecciona un color");
     } else {
-      setLlistaTareas([...llistaTareas, { tarea: tarea, color: color }]);
+      const novaLlistaTareas = [...llistaTareas, { tarea: tarea, color: color }]
+      setLlistaTareas(novaLlistaTareas);
       setTarea("");
       setColor("");
       setMensaje("");
+
+      localStorage.setItem("llistaTareas", JSON.stringify(novaLlistaTareas));
     }
   }
 
@@ -25,6 +35,8 @@ function App() {
     const nuevasTareas = [...llistaTareas];
     nuevasTareas.splice(i, 1);
     setLlistaTareas(nuevasTareas);
+
+    localStorage.setItem("llistaTareas", JSON.stringify(nuevasTareas))
   }
 
   return (
@@ -48,25 +60,25 @@ function App() {
             ></input>
             <div className="mx-10 my-2">
               <button
-                className="me-2 my-1 inline-flex items-center px-4 py-1 text-sm font-medium text-blue-800 bg-blue-200 focus:bg-blue-600 rounded focus:text-white"
+                className={`me-2 my-1 inline-flex items-center px-4 py-1 text-sm font-medium text-blue-800 ${color=="#BFDBFE" ? "bg-blue-600 text-white":"bg-blue-200"} focus:bg-blue-600 rounded focus:text-white`}
                 onClick={() => setColor("#BFDBFE")}
               >
                 trabajo
               </button>
               <button
-                className="me-2 my-1 inline-flex items-center px-4 py-1 text-sm font-medium text-green-800 bg-green-200 focus:bg-green-600 focus:text-white rounded"
+                className={`me-2 my-1 inline-flex items-center px-4 py-1 text-sm font-medium text-green-800 ${color=="#BBF7D0" ? "bg-green-600 text-white":"bg-green-200"} focus:bg-green-600 focus:text-white rounded`}
                 onClick={() => setColor("#BBF7D0")}
               >
                 personal
               </button>
               <button
-                className="me-2 my-1 inline-flex items-center px-4 py-1 text-sm font-medium text-red-800 bg-red-200 focus:bg-red-600 focus:text-white rounded"
+                className={`me-2 my-1 inline-flex items-center px-4 py-1 text-sm font-medium text-red-800 ${color=="#FECACA" ? "bg-red-600 text-white":"bg-red-200"} focus:bg-red-600 focus:text-white rounded`}
                 onClick={() => setColor("#FECACA")}
               >
                 urgente
               </button>
               <button
-                className="me-2 my-1 inline-flex items-center px-4 py-1 text-sm font-medium text-orange-800 bg-orange-200 focus:bg-orange-600 focus:text-white rounded"
+                className={`me-2 my-1 inline-flex items-center px-4 py-1 text-sm font-medium text-orange-800 ${color=="#FED7AA" ? "bg-orange-600 text-white":"bg-orange-200"} focus:bg-orange-600 focus:text-white rounded`}
                 onClick={() => setColor("#FED7AA")}
               >
                 familia
