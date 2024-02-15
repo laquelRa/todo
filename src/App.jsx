@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function App() {
-  const [tareas, setTareas] = useState([]);
+  const [llistaTareas, setLlistaTareas] = useState([]);
   const [tarea, setTarea] = useState("");
   const [color, setColor] = useState("");
   const [mensaje, setMensaje] = useState("");
@@ -14,7 +14,7 @@ function App() {
     } else if (!color) {
       setMensaje("Selecciona un color");
     } else {
-      setTareas([...tareas, { tarea: tarea, color: color }]);
+      setLlistaTareas([...llistaTareas, { tarea: tarea, color: color }]);
       setTarea("");
       setColor("");
       setMensaje("");
@@ -22,9 +22,9 @@ function App() {
   }
 
   function eliminaTarea(i) {
-    const nuevasTareas = [...tareas];
+    const nuevasTareas = [...llistaTareas];
     nuevasTareas.splice(i, 1);
-    setTareas(nuevasTareas);
+    setLlistaTareas(nuevasTareas);
   }
 
   return (
@@ -94,7 +94,7 @@ function App() {
           <div className="flex-col border-l border-gray-300 pl-4">
             <p className="mx-4 text-2xl font-bold">Lista</p>
             <div className="mx-4">
-              {tareas.map((e, i) => (
+              {llistaTareas.map((e, i) => (
                 <span
                   key={i}
                   className="me-2 my-1 inline-flex items-center px-4 py-1 text-sm font-medium text-blue-800 rounded"
